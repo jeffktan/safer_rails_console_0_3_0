@@ -11,7 +11,10 @@ module SaferRailsConsole
     WHITE = 37
 
     def color_text(text, color_code)
-      "\[\e[#{color_code}m\]#{text}\[\e[0m\]"
+      str = "\e[#{color_code}m#{text}\e[0m"
+      str.gsub!("\e[#{color_code}m", "\[\e[#{color_code}m\]" => "\[\e[#{color_code}m\]")
+      str.gsub!("\e[0m", "\[\e[0m\]" => "\[\e[0m\]")
+      str
     end
   end
 end
