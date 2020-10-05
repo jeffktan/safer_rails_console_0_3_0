@@ -11,7 +11,7 @@ module SaferRailsConsole
     WHITE = 37
 
     def color_text(text, color_code)
-      "\e[#{color_code}m#{text}\e[0m"
+      "\[\e[#{color_code}m\]#{text}\[\e[0m\]"
     end
   end
 end
